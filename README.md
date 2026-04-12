@@ -1,36 +1,16 @@
-# Pokédex Angular
+# Proyecto PokeDex - Despliegue en la Nube 
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![codecov](https://codecov.io/gh/keilermora/pokedex-angular/branch/master/graph/badge.svg?token=9E0D28IOFT)](https://codecov.io/gh/keilermora/pokedex-angular)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+## Contexto del Proyecto
+Este proyecto consiste en el despliegue seguro de la aplicación PokeDex para la compañía Pueblo Paleta Inc. Como ingenieros de PumasLab, el objetivo fue realizar un despliegue funcional aplicando buenas prácticas de DevOps y aplicar buenas practicas de seguridad web 
 
-[https://keilermora.github.io/pokedex-angular/](https://keilermora.github.io/pokedex-angular/)
+Url: https://app-listrace-web-prod-jj.azurewebsites.net/
 
-La aplicación muestra el listado y el detalle de los Pokémon de las primeras 3 generaciones.
+## Infraestructura y Cuenta de Nube
+Para este proyecto seleccioné la plataforma Microsoft Azure. El acceso se realizó mediante el convenio de mi universidad con Microsoft, utilizando el beneficio de Azure for Students.
+-   **Sincronización:** Utilicé el inicio de sesión único, vinculando el correo electrónico institucional. Al detectar el dominio de la universidad, Azure redirigió automáticamente al portal de autenticación propio de la institución
+    
+-   **Validación:** Una vez superada la autenticación, el sistema reconoció el perfil de estudiante y se activaron los beneficio de Azure for Students. No fue necesario realizar configuraciones manuales de facturación ni añadir métodos de pago, ya que los créditos académicos estaban precargados y listos para su uso.
 
-La imagen que representa un Pokémon en el listado muestra las variaciones que estos tuvieron durante las primeras versiones, desde la versión Green (1996) hasta la version Emerald (2005).
-
-Los detalles de un Pokémon individual muestra sus estadísticas base y los registros de la Pokédex de las diferentes versiones.
-
-El proyecto fue desarrollado usando la librería de JavaScript [Angular](https://angular.io/) para crear la interfaz de usuario, en comunicación con la Api RESTful [PokéAPI](https://pokeapi.co/).
-
-## Requisitos mínimos
-
-- [Nodejs](https://nodejs.org) con soporte de largo plazo (LTS).
-- Un navegador web
-
-## Ambiente de pruebas
-
-Ejecutar en la raíz del proyecto:
-
-```
-npm start
-```
-
-## Referencias
-
-- [Angular](https://angular.io/): One framework.
-- [Angular Folder Structure](https://angular-folder-structure.readthedocs.io/en/latest/): Create a skeleton structure which is flexible for projects big or small.
-- [Font Awesome](https://fontawesome.com/): The web's most popular icon set and toolkit.
-- [Normalize.css](https://necolas.github.io/normalize.css/): A modern, HTML5-ready alternative to CSS resets.
-- [PokéAPI](https://pokeapi.co/): The RESTful Pokémon API.
+ Con los créditos activos, el panel de control mostró todas las opciones de despliegue desbloqueadas, permitiéndonos crear el recurso de App Service para la PokeDex
+#
+# **Presentado por José Alfredo Jiménez Diaz**
