@@ -1,15 +1,14 @@
-
 # Informe Técnico: Seguridad y Gestión de Errores
 
 ## 1. Mejora de la Seguridad
 
-Para elevar la calificación de seguridad , se implementó un archivo de configuración de infraestructura (`staticwebapp.config.json`). Las mejoras clave fueron:
+En mi aplicación, implementé una arquitectura de seguridad basada en `Global Headers` mediante el archivo de configuración de Azure Static Web Apps, con el fin de endurecer la postura de seguridad del lado del cliente
 
--   **Encabezados HTTP de Seguridad:** Se configuraron políticas para evitar ataques de _Clickjacking_ (X-Frame-Options) y para asegurar que el navegador solo ejecute scripts confiables
-    
--   **Gestión de Permisos:** Se deshabilitó por política el acceso a hardware innecesario (cámara, micrófono) y se restringió el origen de las imágenes para evitar la carga de contenido malicioso
-    
--   **Ajuste de Conectividad:** Seguí la recomendación del profesor sobre la implementación de estándares de seguridad en la nube y utilizar este archivo de configuración para aplicar un control estricto sobre las conexiones externas. Esto permitió asegurar que la aplicación solo interactúe con fuentes autorizadas, como la PokeAPI, cumpliendo así con los criterios de auditoría y protección de datos exigidos para este laboratorio.
+El pilar central es el `Content-Security-Policy`, donde establecí una política de 'Lista Blanca' para restringir la ejecución de scripts y la carga de recursos únicamente a orígenes confiables, como `PokeAPI` y mi propia infraestructura en Azure, mitigando así riesgos de inyección y ataques `XSS`.
+
+Para garantizar la integridad de los datos, configuré `Strict-Transport-Security` con una vigencia de un año y soporte para precarga, forzando una conexión cifrada de extremo a extremo. Además, utilicé cabeceras como `X-Frame-Options` y `Permissions-Policy` para prevenir ataques de `Clickjacking` y restringir el acceso a periféricos innecesarios
+
+Finalmente, resolví los desafíos de navegación de las `Single Page Applications` mediante un `Navigation Fallback`, asegurando que el servidor redirija correctamente las rutas virtuales hacia el núcleo de Angular. En conjunto, estas configuraciones no solo cumplen con los requisitos del laboratorio, sino que elevan la aplicación a estándares profesionales de seguridad
  
 ## 2. Gestión de Errores y Soluciones
 
