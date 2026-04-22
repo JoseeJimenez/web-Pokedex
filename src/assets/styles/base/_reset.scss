@@ -2,16 +2,11 @@
 @import '../utils/transition';
 
 html {
-  /// Asegurar el ancho total de la ventana
-  width: 100%;
-  max-width: 100vw;
-  margin: 0;
-  padding: 0;
-
   /// Evitar el scroll horizontal
+  max-width: 100%;
   overflow-x: hidden;
 
-  /// Mostrar siempre el scroll vertical para evitar saltos de layout
+  /// Mostrar siempre el scroll vertical
   overflow-y: scroll;
 
   box-sizing: border-box;
@@ -25,15 +20,6 @@ html {
   }
 
   body {
-    /// Asegurar que el cuerpo ocupe todo el espacio entregado por el HTML
-    width: 100%;
-    max-width: 100vw;
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
     /// Establecer Pokémon Font como fuente principal
     font-size: 16px;
     font-family: $pokemonFont;
@@ -43,6 +29,13 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    /// Evitar el scroll horizontal
+    max-width: 100%;
+
+    min-height: 100vh;
+    margin: 0;
+    flex: 1;
+
     a:focus,
     button:focus {
       /// Eliminar la línea azul en el elemento señalado
@@ -50,7 +43,6 @@ html {
       box-shadow: none;
     }
 
-    /// Clases de utilidad para animaciones
     .--visible {
       opacity: 1;
       transition: $fast;
@@ -60,11 +52,4 @@ html {
       opacity: 0;
     }
   }
-}
-
-/// REGLA EXTRA: Si el componente principal tiene un límite, esto lo rompe
-.layout, .layout_content, .home, .home_content {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
 }
