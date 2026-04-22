@@ -1,3 +1,4 @@
+
 # Informe Técnico: Seguridad y Gestión de Errores
 
 ## 1. Mejora de la Seguridad
@@ -25,11 +26,17 @@ Durante el proceso de despliegue y post-configuración, se presentaron y resolvi
 
 -   **El Problema:** Tras aplicar las políticas de seguridad iniciales, la página mostraba un error 500 o no cargaba los Pokémon
     
--   **La Solución:** Tras identificar que la política de seguridad era demasiado estricta. Se ajustó el archivo de configuración para permitir conexiones salientes hacia `https://pokeapi.co`, restaurando el servicio inmediatamente.
+-   **La Solución:** Tras identificar que la política de seguridad era demasiado estricta. Se ajustó el archivo de configuración para permitir conexiones salientes hacia `https://pokeapi.co`, restaurando el servicio inmediatamente
     
 
 ### C. Fallo al Recargar (Error de Rutas SPA)
 
--   **El Problema:** Al presionar F5 o refrescar la página, el servidor de Azure no encontraba la ruta y mostraba un error.
+-   **Problema:** Al presionar F5 o refrescar la página, el servidor de Azure no encontraba la ruta y mostraba un error
     
--   **La Solución:** Se configuró una regla de `navigationFallback`. Esta regla redirige cualquier petición desconocida al `index.html`, permitiendo que Angular maneje la navegación de forma interna sin que el servidor se rompa.
+-   **Solución:** Se configuró una regla de `navigationFallback`. Esta regla redirige cualquier petición desconocida al `index.html`, permitiendo que Angular maneje la navegación de forma interna sin que el servidor se rompa
+
+### Optimización del Flujo de CI/CD y Limpieza de Repositorio
+
+ - **Problema:** Se identificaron tres archivos de configuración (`.yml`) en la carpeta `.github/workflows/` compitiendo por el mismo evento de `push`
+ 
+ - **Solución** 	Se eliminaron los flujos erróneos para centralizar el despliegue en el único canal verificado
